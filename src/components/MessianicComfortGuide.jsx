@@ -8,12 +8,18 @@ const MessianicComfortGuide = () => {
   const [responses, setResponses] = useState({});
   const [currentInput, setCurrentInput] = useState('');
   const stepCardRef = useRef(null);
+  const isInitialMount = useRef(true);
 
-  // Scroll to step card whenever step changes
+  // Scroll to step card whenever step changes (but not on initial load)
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     if (stepCardRef.current) {
       const elementPosition = stepCardRef.current.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - 100; // 100px before the card
+      const offsetPosition = elementPosition + window.pageYOffset - 100;
 
       window.scrollTo({
         top: offsetPosition,
@@ -22,24 +28,24 @@ const MessianicComfortGuide = () => {
     }
   }, [currentStep]);
 
- const handleNext = () => {
-  if (currentInput.trim()) {
-    setResponses({
-      ...responses,
-      [currentStep]: currentInput
-    });
-    setCurrentInput('');
-    setCurrentStep(currentStep + 1);
-    
-    // Scroll to top when completing the journey
-    if (currentStep === steps.length - 1) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+  const handleNext = () => {
+    if (currentInput.trim()) {
+      setResponses({
+        ...responses,
+        [currentStep]: currentInput
       });
+      setCurrentInput('');
+      setCurrentStep(currentStep + 1);
+      
+      // Scroll to top when completing the journey
+      if (currentStep === steps.length - 1) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
     }
-  }
-};
+  };
 
   const handleRestart = () => {
     setCurrentStep(0);
