@@ -1,0 +1,527 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.app-container {
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(217, 119, 6, 0.05) 0%, transparent 50%);
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Header Styles */
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.app-title {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--amber-900);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(120, 53, 15, 0.1);
+}
+
+@media (min-width: 768px) {
+  .app-title {
+    font-size: 2.5rem;
+  }
+}
+
+.title-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--amber-700), transparent);
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 2px 4px rgba(180, 83, 9, 0.2);
+}
+
+.step-counter {
+  font-size: 1rem;
+  color: var(--gray-600);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-bottom: 2.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, var(--amber-100), var(--amber-200));
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.progress-bar-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--amber-600), var(--amber-700), var(--amber-600));
+  background-size: 200% 100%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.4);
+  animation: gradientSlide 3s ease infinite;
+}
+
+/* Step Card */
+.step-card {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid var(--amber-200);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 
+    0 10px 25px rgba(180, 83, 9, 0.1),
+    0 4px 6px rgba(180, 83, 9, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--amber-600), var(--amber-700), var(--amber-600));
+  background-size: 200% 100%;
+  animation: gradientSlide 3s ease infinite;
+}
+
+.step-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.75rem;
+  color: var(--amber-900);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Verse Box */
+.verse-box {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 5px solid var(--amber-600);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.verse-box::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 4rem;
+  color: var(--amber-200);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.verse-text {
+  font-style: italic;
+  color: var(--gray-700);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+}
+
+.verse-reference {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* Instruction Text */
+.instruction-text {
+  color: var(--gray-800);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Input Section */
+.input-section {
+  margin-top: 1.5rem;
+}
+
+.input-label {
+  display: block;
+  color: var(--amber-900);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+}
+
+.input-textarea {
+  width: 100%;
+  padding: 1.25rem;
+  border: 2px solid var(--amber-300);
+  border-radius: 0.75rem;
+  resize: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-textarea:focus {
+  outline: none;
+  border-color: var(--amber-600);
+  box-shadow: 
+    0 0 0 3px rgba(217, 119, 6, 0.1),
+    inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.input-textarea::placeholder {
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--amber-700), var(--amber-600));
+  color: white;
+  margin-top: 1.5rem;
+  margin-left: auto;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--amber-800), var(--amber-700));
+  box-shadow: 0 6px 12px rgba(180, 83, 9, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  background: var(--gray-300);
+  color: var(--gray-500);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--gray-600), var(--gray-700));
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--gray-700), var(--gray-800));
+  box-shadow: 0 6px 12px rgba(75, 85, 99, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--gray-600);
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+}
+
+.btn-text:hover {
+  color: var(--gray-800);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation */
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Footer Quote */
+.footer-quote {
+  margin-top: 3rem;
+  text-align: center;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.footer-quote p {
+  font-style: italic;
+  color: var(--gray-500);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Completion Page */
+.completion-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.completion-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: var(--amber-900);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(120, 53, 15, 0.1);
+}
+
+.completion-divider {
+  width: 96px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--amber-700), transparent);
+  margin: 0 auto 2rem;
+  box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3);
+}
+
+.completion-verse {
+  font-size: 1.25rem;
+  color: var(--gray-700);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.completion-reference {
+  font-size: 1rem;
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+}
+
+/* Reflections Container */
+.reflections-container {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid var(--amber-200);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 
+    0 10px 25px rgba(180, 83, 9, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.reflections-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: var(--amber-900);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.reflection-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--amber-200);
+}
+
+.reflection-item:last-child {
+  border-bottom: none;
+}
+
+.reflection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--amber-800);
+  margin-bottom: 0.75rem;
+  font-family: 'Cinzel', serif;
+}
+
+.reflection-verse {
+  font-style: italic;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.reflection-response {
+  color: var(--gray-800);
+  white-space: pre-wrap;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--amber-400);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Action Buttons Container */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Final Blessing */
+.final-blessing {
+  margin-top: 3rem;
+  text-align: center;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.final-blessing p {
+  font-style: italic;
+  color: var(--gray-600);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.shalom-text {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  color: var(--amber-700);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .step-card {
+    padding: 1.5rem;
+  }
+
+  .app-title {
+    font-size: 1.75rem;
+  }
+
+  .completion-title {
+    font-size: 2rem;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+  }
+
+  .reflections-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
