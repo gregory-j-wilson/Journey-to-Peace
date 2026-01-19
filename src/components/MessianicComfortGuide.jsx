@@ -71,10 +71,9 @@ const MessianicComfortGuide = () => {
   const step = steps[currentStep];
 
   return (
-    <div style={{ maxWidth: '42rem', margin: '0 auto' }}>
-
-      {/* Hero Image */}
-    <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+  <>
+    {/* Hero Image */}
+    <div style={{ textAlign: 'center', marginBottom: '2rem', maxWidth: '42rem', margin: '0 auto 2rem' }}>
       <img 
         src="/peace-painting.jpg" 
         alt="Peace" 
@@ -83,17 +82,20 @@ const MessianicComfortGuide = () => {
           width: '100%', 
           height: 'auto',
           borderRadius: '1rem',
-          boxShadow: '0 10px 25px rgba(180, 83, 9, 0.15)'
+          boxShadow: '0 10px 25px rgba(83, 39, 6, 0.5)'
         }} 
       />
     </div>
 
-      <div className="app-header">
-        <h1 className="app-title">Journey to God's Comforting Presence</h1>
-        <div className="title-divider"></div>
-        <p className="step-counter">STEP {currentStep + 1} OF {steps.length}</p>
-      </div>
+    {/* Full-width Header */}
+    <div className="app-header">
+      <h1 className="app-title">Journey to God's Comforting Presence</h1>
+      <div className="title-divider"></div>
+      <p className="step-counter">STEP {currentStep + 1} OF {steps.length}</p>
+    </div>
 
+    {/* Main Content Container */}
+    <div style={{ maxWidth: '42rem', margin: '0 auto' }}>
       <div className="progress-container">
         <div className="progress-bar-bg">
           <div 
@@ -123,7 +125,8 @@ const MessianicComfortGuide = () => {
         <p>"Come to Me, all you who are weary and burdened, and I will give you rest." - Matthew 11:28</p>
       </div>
     </div>
-  );
+  </>
+);
 };
 
 export default MessianicComfortGuide;
