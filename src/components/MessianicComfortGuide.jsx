@@ -72,6 +72,22 @@ const MessianicComfortGuide = () => {
 
   return (
     <div style={{ maxWidth: '42rem', margin: '0 auto' }}>
+
+      {/* Hero Image */}
+    <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      <img 
+        src="/peace-painting.jpg" 
+        alt="Peace" 
+        style={{ 
+          maxWidth: '400px', 
+          width: '100%', 
+          height: 'auto',
+          borderRadius: '1rem',
+          boxShadow: '0 10px 25px rgba(180, 83, 9, 0.15)'
+        }} 
+      />
+    </div>
+
       <div className="app-header">
         <h1 className="app-title">Journey to God's Comforting Presence</h1>
         <div className="title-divider"></div>
