@@ -122,7 +122,8 @@ const MessianicComfortGuide = () => {
       </div>
 
       <div className="footer-quote">
-        <p>"Come to Me, all you who are weary and burdened, and I will give you rest." - Matthew 11:28</p>
+        <p>"Come to Me, all you who are weary and burdened, and I will give you rest." - Matthew 11:28</p><br></br>
+        <p>Web app design and development by <a href="https://selahcreate.com">Selah Create.</a></p>
       </div>
     </div>
   </>
